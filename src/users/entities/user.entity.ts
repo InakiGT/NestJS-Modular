@@ -7,9 +7,9 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import { Customer } from './customer.entity';
-
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -21,6 +21,7 @@ export class User {
   })
   email: string;
 
+  @Exclude()
   @Column({
     type: 'varchar',
     length: 255,
